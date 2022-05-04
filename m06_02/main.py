@@ -1,4 +1,4 @@
-from pathlib import Path
+from pathlib import Path, PurePath
 import shutil
 import sys
 import file_parser as parser
@@ -44,8 +44,8 @@ def handle_folder(folder: Path):
 
 def main(folder: Path):
     parser.scan(folder)
-
     for file in parser.JPEG_IMAGES:
+        # pathjoin(str(folder), 'images', 'JPEG')
         handle_media(file, folder / 'images' / 'JPEG')
     for file in parser.JPG_IMAGES:
         handle_media(file, folder / 'images' / 'JPG')
