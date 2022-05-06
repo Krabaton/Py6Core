@@ -1,0 +1,40 @@
+from __future__ import absolute_import
+
+
+
+""""""  # start delvewheel patch
+def _delvewheel_init_patch_0_0_9():
+    import os
+    import sys
+    libs_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, 'python_snappy.libs'))
+    if sys.version_info[:2] >= (3, 8):
+        os.add_dll_directory(libs_dir)
+    else:
+        from ctypes import WinDLL
+        with open(os.path.join(libs_dir, '.load_order')) as file:
+            load_order = file.read().split()
+        for lib in load_order:
+            WinDLL(os.path.join(libs_dir, lib))
+
+
+_delvewheel_init_patch_0_0_9()
+del _delvewheel_init_patch_0_0_9
+# end delvewheel patch
+
+
+from .snappy import (
+	compress,
+	decompress,
+	uncompress,
+	stream_compress,
+	stream_decompress,
+	StreamCompressor,
+	StreamDecompressor,
+	UncompressError,
+	isValidCompressed,
+)
+
+from .hadoop_snappy import (
+    stream_compress as hadoop_stream_compress,
+    stream_decompress as hadoop_stream_decompress,
+)
