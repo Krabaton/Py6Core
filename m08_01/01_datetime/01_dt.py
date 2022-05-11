@@ -1,11 +1,12 @@
 from datetime import datetime
 
 # Создание дат
+date = datetime(year=2022, month=5, day=11, hour=19, minute=36, second=30)
+print(date)
+print(date.date())
+print(date.time())
 
-# Перевод текста в дату и обратно 11.05.2022
+print(datetime.now())
+print(datetime.today())
 
-# Поменять дату
-
-
-# работа с секундами
 
