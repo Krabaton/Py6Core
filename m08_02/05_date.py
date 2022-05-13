@@ -13,11 +13,14 @@ days_name = {
 }
 
 
-def day_of_week(date):
+def day_of_week(date: str):
+    d, m, y = date.split('-')
+    date = datetime(day=int(d), month=int(m), year=int(y))
+    d_name = days_name.get(date.weekday())
+    return d_name
 
-    return None
 
-
-print(day_of_week('26-01-2022'))
-print(day_of_week('24-02-2022'))
-print(day_of_week('13-05-2022'))
+print(day_of_week('31-05-2004'))
+print(day_of_week('26-05-1990'))
+print(day_of_week('10-12-1980'))
+print(day_of_week('11-04-1972'))
