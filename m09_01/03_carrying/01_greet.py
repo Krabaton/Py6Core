@@ -6,7 +6,21 @@ def greeting_simple(name, msg):
     return f"{name} - {msg}"
 
 
-print(greeting_simple('Boris', 'Hello'))
+print(greeting_simple('Boris', 'Go to work!'))
+print(greeting_simple('Boris', 'Go to home!'))
+
+
+def greeting(name):
+    def message(msg):
+        return f'{name} - {msg}'
+
+    return message
+
+
+msg_for_boris = greeting('Boris')
+
+print(msg_for_boris('Go to home!'))
+print(msg_for_boris('Go to work!'))
 
 
 
