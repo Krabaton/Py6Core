@@ -9,3 +9,17 @@ template = [
     "Программировать не настолько сложно, как об этом говорят.",
     "Простые ежедневные упражнения помогут достичь успеха."
 ]
+
+for i, comment in enumerate(template):
+    print("|{:^5}|{:<15}|".format(i, comment))
+
+
+class Comments(UserString):
+    def get_limit_comment(self, limit=10):
+        return f"{self.data[:limit - 3]}..."
+
+
+comments = [Comments(comment) for comment in template]
+
+for i, comment in enumerate(comments):
+    print("|{:^5}|{:<15}|".format(i + 1, comment.get_limit_comment(35)))

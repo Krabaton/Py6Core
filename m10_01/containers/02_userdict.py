@@ -34,4 +34,15 @@ contacts = [
 ]
 
 
+class Customer(UserDict):
+    def get_phone(self):
+        return f"{self.get('name')}: {self.get('phone')}"
 
+    def get_email(self):
+        return f"{self.get('name')}: {self.get('email')}"
+
+
+customers = [Customer(contact) for contact in contacts]
+
+for customer in customers:
+    print(customer.get_phone())
