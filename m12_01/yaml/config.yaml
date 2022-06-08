@@ -1,0 +1,12 @@
+common:
+  port: 3000
+postgres:
+  db_host: localhost
+  db_port: 5432
+  db_user: postgres
+  db_password: 567234
+  db_database: web15
+auth:
+  secret_key: fba012a2a0c9c3d884fdf15843f2aa438bac1b5e8527875ecd7187e3ce49415
+  algorithm: HS256
+  expire_token: 30
