@@ -1,0 +1,10 @@
+users:
+- age: 22
+  gender: male
+  name: Николай
+- age: 22
+  gender: female
+  name: Мария
+- age: 22
+  gender: male
+  name: Назар
